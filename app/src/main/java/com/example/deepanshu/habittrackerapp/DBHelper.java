@@ -10,9 +10,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by deepanshu on 3/4/17.
  */
 
-public class DBHelper extends SQLiteOpenHelper {
+class DBHelper extends SQLiteOpenHelper {
 
-    public DBHelper(Context context) {
+    DBHelper(Context context) {
         super(context, Contract.DATABASE_NAME, null, Contract.DB_VERSION);
     }
 
@@ -35,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insert(String habit, int times) {
+    void insert(String habit, int times) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -46,11 +46,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(Contract.Entry.TABLE, null, values);
     }
 
-    public Cursor readHabits() {
+    Cursor readHabits() {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String[] projection = {
-                Contract.Entry._ID,
                 Contract.Entry.COL_HABIT,
                 Contract.Entry.COL_TIMES
         };

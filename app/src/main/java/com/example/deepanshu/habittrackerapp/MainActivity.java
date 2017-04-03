@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = helper.readHabits();
 
         while (cursor.moveToNext()) {
-            Log.v(TAG, "Daily Schedule: " + cursor.getInt(0) + " Food - " + cursor.getString(1) + " Time - " + cursor.getInt(2));
+            Log.v(TAG, "Daily Schedule: \n" + " Food - " + cursor.getString(0) + " Time - " + cursor.getInt(1));
         }
     }
 }
